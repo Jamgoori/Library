@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import styled from "styled-components";
-function BookShelf() {
+function BookShelf({Data}) {
+  console.log(Data)
   return (
     <Container>
     <Card>

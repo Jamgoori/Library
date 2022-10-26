@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import styled from "styled-components";
 import Search from './Search';
 
-function Header() {
+function Header({changeSearchData}) {
   return (
     <div>
         <header>
@@ -11,7 +11,7 @@ function Header() {
             <Main>
                 <h2> 책을 찾아보세요</h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam placeat inventore libero necessitatibus voluptatem consequuntur asperiores, odio eius, optio sed harum, provident minus accusamus tempore dolore laboriosam unde illum.</p>
-                <Search/>
+                <Search changeSearchData={changeSearchData}/>
             </Main>
         </header>
     </div>

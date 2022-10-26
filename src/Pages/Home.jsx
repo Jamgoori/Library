@@ -1,12 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import BookShelf from '../Components/BookShelf'
 import Header from "../Components/Header"
 function Home() {
-  const [data, setData] = useState();
+  
+  const [Data, setData] = useState([]);
+  function changeSearchData (searchDatas){
+    setData(searchDatas)
+  }
   return (
     <div>
-        <Header/>
-        <BookShelf setData={setData}/>
+        <Header changeSearchData={changeSearchData}/>
+        <BookShelf Data={Data}/>
     </div>
   )
 }

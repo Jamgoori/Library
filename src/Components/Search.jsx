@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
-function Search(props) {
+function Search({changeSearchData}) {
   const [realSearch, setRealSearch] = useState("");
-  const [Data, setData] = useState([]);
   const searchBook = (e) => {
     if (e.key === "Enter") {
       axios
@@ -14,8 +13,7 @@ function Search(props) {
             "&key=AIzaSyAVCG6-qEF5pd-xheLY5hjedP1zjV0axCw"
         )
         .then(
-          (res) => console.log(res.data.items),
-          (res) => setData(res.data.items)
+          (res) => changeSearchData(res.data.items)
         )
         .catch((err) => console.log(err));
     }
@@ -28,11 +26,11 @@ function Search(props) {
             type="text"
             placeholder="책 제목을 입력하세요"
             onChange={(e) => setRealSearch(e.target.value)}
-            onKeyPress={() => props.setData()}
+            onKeyPress={searchBook}
             value={realSearch}
           />
           <button>
-            <FaSearch size={32} onClick={searchBook} />
+            <FaSearch size={32}  />
           </button>
         </div>
       </SearchForm>
