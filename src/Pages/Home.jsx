@@ -2,10 +2,11 @@ import React from 'react'
 import BookShelf from '../Components/BookShelf'
 import Header from "../Components/Header"
 function Home() {
+  const [data, setData] = useState();
   return (
     <div>
         <Header/>
-        <BookShelf/>
+        <BookShelf setData={setData}/>
     </div>
   )
 }

@@ -1,11 +1,6 @@
 import React,{useState} from 'react'
 import styled from "styled-components";
-function BookShelf({book}) {
-  const [bookdata,setBookData] = useState();
-  const bookFnc = (data) =>{
-    setBookData(data);
-  }
-  
+function BookShelf() {
   return (
     <Container>
     <Card>

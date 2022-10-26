@@ -2,37 +2,40 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
-function Search() {
+function Search(props) {
   const [realSearch, setRealSearch] = useState("");
-  const [bookData,setData] = useState([]);
+  const [Data, setData] = useState([]);
   const searchBook = (e) => {
     if (e.key === "Enter") {
-      axios.get(
+      axios
+        .get(
           "https://www.googleapis.com/books/v1/volumes?q=" +
-            realSearch+
+            realSearch +
             "&key=AIzaSyAVCG6-qEF5pd-xheLY5hjedP1zjV0axCw"
         )
-        .then(res => console.log(res.data.items),
-                res=> setData(res.data.items))
-        .catch(err=>console.log(err))
-        
-  }};
+        .then(
+          (res) => console.log(res.data.items),
+          (res) => setData(res.data.items)
+        )
+        .catch((err) => console.log(err));
+    }
+  };
   return (
-    <>    
-    <SearchForm>
-      <div>
-        <input
-          type="text"
-          placeholder="책 제목을 입력하세요"
-          onChange={(e) => setRealSearch(e.target.value)}
-          onKeyPress={searchBook}
-          value={realSearch}
-        />
-        <button>
-          <FaSearch size={32} />
-        </button>
-      </div>
-    </SearchForm>
+    <>
+      <SearchForm>
+        <div>
+          <input
+            type="text"
+            placeholder="책 제목을 입력하세요"
+            onChange={(e) => setRealSearch(e.target.value)}
+            onKeyPress={() => props.setData()}
+            value={realSearch}
+          />
+          <button>
+            <FaSearch size={32} onClick={searchBook} />
+          </button>
+        </div>
+      </SearchForm>
     </>
   );
 }
