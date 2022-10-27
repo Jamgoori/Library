@@ -2,17 +2,30 @@ import React,{useState} from 'react'
 import styled from "styled-components";
 function BookShelf({Data}) {
   console.log(Data)
-  return (
-    <Container>
-    <Card>
-      <img src='./images/sorry.jpg'/>
-      <div>
-        <h3>안녕하시롱</h3>
-        <p>3500</p>
-      </div>
-    </Card> 
-    </Container>
-  )
+return (
+  <>
+  {Data.map((item)=>{
+    let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
+    let amount = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
+    if(thumbnail!=undefined && amount != undefined){
+      return (
+
+
+        <Container>
+        <Card>
+    
+          <img src={thumbnail}/>
+          <div>
+            <h3>{item.volumeInfo.title}</h3>
+            <p>{amount}원</p>
+          </div>
+        </Card> 
+        </Container>
+      )
+
+    }
+  })}
+</>)
 }
 
 const Container = styled.section`

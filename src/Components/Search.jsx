@@ -10,7 +10,7 @@ function Search({changeSearchData}) {
         .get(
           "https://www.googleapis.com/books/v1/volumes?q=" +
             realSearch +
-            "&key=AIzaSyAVCG6-qEF5pd-xheLY5hjedP1zjV0axCw"
+            "&key=AIzaSyAVCG6-qEF5pd-xheLY5hjedP1zjV0axCw"+"&maxResults=40"
         )
         .then(
           (res) => changeSearchData(res.data.items)
