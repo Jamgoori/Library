@@ -3,7 +3,7 @@ import styled from "styled-components";
 function BookShelf({Data}) {
   console.log(Data)
 return (
-  <>
+  <Container>
   {Data.map((item)=>{
     let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
     let amount = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
@@ -11,7 +11,7 @@ return (
       return (
 
 
-        <Container>
+
         <Card>
     
           <img src={thumbnail}/>
@@ -20,12 +20,12 @@ return (
             <p>{amount}원</p>
           </div>
         </Card> 
-        </Container>
+
       )
 
     }
   })}
-</>)
+        </Container>)
 }
 
 const Container = styled.section`
@@ -48,6 +48,12 @@ const Card = styled.div`
     height: 200px;
     border-radius: 1rem 1rem 0 0;
   }
+&:hover{
+  transform: scale(0.9);
+  transition: all ease 0.5s;
+  cursor: pointer;
+}
+  
 `
 
 export default BookShelf
