@@ -10,7 +10,7 @@ function Header({changeSearchData}) {
             <Navbar/>
             <Main>
                 <h2> 책을 찾아보세요</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam nam placeat inventore libero necessitatibus voluptatem consequuntur asperiores, odio eius, optio sed harum, provident minus accusamus tempore dolore laboriosam unde illum.</p>
+
                 <Search changeSearchData={changeSearchData}/>
             </Main>
         </header>
@@ -28,9 +28,8 @@ const Main = styled.div`
     color: white;
     h2{
         font-size: 4rem;
+        margin-bottom: 6rem;
     }
-    p{
-        margin-top: 2rem;
-    }
+
 `
 export default Header
